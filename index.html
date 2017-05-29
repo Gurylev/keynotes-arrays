@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Массивы и циклы</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+    <!-- Theme docs: https://shwr.me/shower/themes/ribbon/ -->
+    <script src="jquery/2.0.3.js"></script>
+    <script src="jquery/easing.js"></script>
+    <style>
+    #cover {
+      background-color: black;
+      color: gold;
+    }
+
+    img.cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .skip:after {
+      content: none;
+    }
+
+    .place {
+        z-index: -1;
+    }
+
+    .light_blue {
+        color: #a5a9ff !important
+    }
+
+    .question {
+        color: #ff8868 !important
+    }
+
+    .btn {
+      background-color: white;
+      color: black;
+      border: 1px solid currentColor;
+      font-size: 1em;
+      padding: 1em 2em;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body class="shower list">
+    <header class="caption">
+        <h1>Массивы и циклы</h1>
+        <p>для Epic Skills</p>
+    </header>
+    <section class="slide skip" id="cover">
+      <h1 class="shout grow"><b>Массивы и&nbsp;циклы</b></h1>
+    </section>
+    <section class="slide">
+      <h2>Чё, чё, это чё? Кто, кто это сделал?</h2>
+      <ul>
+        <li class="next">Меня зовут Андрей Гурылев, я работаю в компании <img src="http://grlv.ru/pres/email/images/wrike.png" alt="" style="height: 1em">Wrike</li>
+        <li class="next">Я организую встречи NodeSchool SPb и помогаю на pitercss и PiterJS</li>
+        <li class="next">Я верстаю 9 лет, сейчас зовусь Senior Frontend Developer<br>и, кажется, научился чему-то за эти годы</li>
+        <li class="next">Сегодня я поделюсь подробностями о том,<br>как правильно работать массивами и циклами</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>В предыдущих сериях: массивы</h2>
+      <p>
+        <span class="next"><b>Массив</b> — это коллекция значений</span><br>
+        <span class="next">В элементах массива могут содержаться значения любых типов</span><br>
+        <span class="next">Массивы нумеруются с нуля</span><br>
+        <span class="next">Элементы массива можно получить по числовому ключу</span><br>
+        <span class="next"><code>var animals = ["Котик", "Енот", "Лиса"];</code><br>
+        <span class="next"><code>alert( animals[0] ); // Котик</code><br>
+      </p>
+    </section>
+    <section class="slide">
+      <h2>В предыдущих сериях: циклы</h2>
+      <p>
+        <span class="next"><b>Цикл</b> нужен для обхода элементов массива</span><br>
+        <span class="next">Цикл <code>while</code> выполняется, пока переданное условие верно</span><br>
+        <span class="next"><code>var cats = 2; while( cats <= 5 ) cats++</code><br>
+      </p>
+      <p>
+        <span class="next">Цикл <code>for</code> задаётся тремя выражениями: начало цикла, условие и шаг</span><br>
+        <span class="next">Пока условие выполняется, цикл выполненяет своего содержимого<br>
+        <span class="next">Доступ к элементам массива в цикле — через квадратные скобки <code>arr<mark>[</mark>i<mark>]</mark></code>, где <code>i</code> - номер итерации</span><br>
+      </p>
+    </section>
+    <section class="slide">
+      <h2>Многомерные массивы</h2>
+      <p class="next">Это когда массивы в массиве</p>
+      <p class="next">
+        <code>var groups = [["Пётр", "Ада"],["Ян", "Маша", "Нат"]];</code><br>
+        <code>alert(groups[0]);</code>
+      </p>
+      <button type="button" class="btn next multiarray">Проверить</button>
+      <script>
+      (function() {
+        function alertMultiarray() {
+          var groups = [["Пётр", "Ада"],["Ян", "Маша", "Нат"]];
+          alert(groups[0]);
+        }
+        document.querySelector('.multiarray').addEventListener('click', alertMultiarray);
+      })();
+      </script>
+    </section>
+    <section class="slide white" style="background-color: goldenrod;">
+      <h1 class="shout grow" style="color: darkred"><b>Методы перебора массивов</b></h1>
+    </section>
+    <section class="slide">
+      <h2>Перебор: forEach</h2>
+      <p class="next">Тот же <code>for</code>, только принимает функцию и даёт ей итерируемый объект</p>
+      <p class="next">
+        <code>var tutors = ["Тим", "Андрей"];</code><br>
+        <code>tutors.forEach(function(<mark>item</mark>, <mark>i</mark>, <mark>arr</mark>) {</code><br>
+        <code>&nbsp;&nbsp;alert( i + ": " + item + " (массив:" + arr + ")" );</code><br>
+        <code>});</code><br><br>
+        <button type="button" class="btn tutors">Проверить</button>
+      </p>
+      <script>
+      (function() {
+        function checkTutors() {
+          var tutors = ["Тим", "Андрей"];
+          tutors.forEach(function(item, i, arr) {
+            alert( i + ": " + item + " (массив:" + arr + ")" );
+          });
+        }
+        document.querySelector('.tutors').addEventListener('click', checkTutors);
+      })();
+      </script>
+    </section>
+    <section class="slide">
+      <h2>Перебор: forEach с выносом функции</h2>
+      <p class="next">
+        <code>var tutors = ["Тим", "Андрей"];</code><br>
+        <code>function getTutors(<mark>item</mark>, <mark>i</mark>, <mark>arr</mark>) {</code><br>
+        <code>&nbsp;&nbsp;alert( i + ": " + item + " (массив:" + arr + ")" );</code><br>
+        <code>}</code><br>
+        <code>tutors.forEach(getTutors);</code><br><br>
+        <button type="button" class="btn tutors2">Проверить</button>
+      </p>
+      <script>
+      (function() {
+        function checkTutors() {
+          var tutors = ["Тим", "Андрей"];
+          function getTutors(item, i, arr) {
+            alert( i + ": " + item + " (массив:" + arr + ")" );
+          }
+          tutors.forEach(getTutors);
+        }
+        document.querySelector('.tutors2').addEventListener('click', checkTutors);
+      })();
+      </script>
+    </section>
+    <section class="slide">
+      <h2>Фильтрация: filter</h2>
+      <p class="next">Когда нужно взять только часть массива. Создаётся новый массив.<br>
+        <span class="next">
+          <code>var students = ["Алексей Петров", "Надежда Василькова", "Алексей Николаев"];</code><br>
+          <code>function findAlex(student, i, arr) {</code><br>
+          <code>&nbsp;&nbsp;return student.split(' ')[0] === "Алексей"</code><br>
+          <code>}</code><br>
+          <code>alert(students.<mark>filter</mark>(findAlex));</code><br>
+          <button type="button" class="btn students">Проверить</button>
+        </span>
+      </p>
+      <script>
+      (function() {
+        function checkStudents() {
+          var students = ["Алексей Петров", "Надежда Василькова", "Алексей Николаев"];
+          function findAlex(student, i, arr) {
+            return student.split(' ')[0] === "Алексей"
+          }
+          alert(students.filter(findAlex));
+        }
+        document.querySelector('.students').addEventListener('click', checkStudents);
+      })();
+      </script>
+    </section>
+    <section class="slide">
+      <h2>Трансформация: map</h2>
+      <p class="next">Когда нужен новый массив, данные в котором опираются на имеющийся<br>
+        <span class="next">
+          <code>var groups = [["Пётр", "Ада"],["Ян", "Маша", "Нат"]];</code><br>
+          <code>function countStudents(group, i, arr) {</code><br>
+          <code>&nbsp;&nbsp;return group.length</code><br>
+          <code>}</code><br>
+          <code>alert(groups.<mark>map</mark>(countStudents));</code><br>
+          <button type="button" class="btn groups">Проверить</button>
+        </span>
+      </p>
+      <script>
+      (function() {
+        function checkGroups() {
+          var groups = [["Пётр", "Ада"],["Ян", "Маша", "Нат"]];
+          function countStudents(group, i, arr) {
+            return group.length
+          }
+          alert(groups.map(countStudents));
+        }
+        document.querySelector('.groups').addEventListener('click', checkGroups);
+      })();
+      </script>
+    </section>
+    <section class="slide">
+      <h2>Проверка массива: every/some</h2>
+      <p class="next">Когда нужно знать, что все элементы массива чему-то соответствуют<br>
+        <span class="next">
+          <code>var students = ["Пётр 1", "Николай 2", "Костя"];</code><br>
+          <code>function findKings(student, i, arr) {</code><br>
+          <code>&nbsp;&nbsp;var secondName = student.split(' ')[1]</code><br>
+          <code>&nbsp;&nbsp;return secondName && !isNaN(secondName)</code><br>
+          <code>}</code><br>
+          <code>alert(students.<mark>some</mark>(findKings));</code><br>
+          <button type="button" class="btn king">Проверить</button>
+        </span>
+      </p>
+      <script>
+      (function() {
+        function checkKing() {
+          var students = ["Пётр 1", "Николай 2", "Костя"];
+          function findKings(student, i, arr) {
+            var secondName = student.split(' ')[1]
+            return secondName && !isNaN(secondName)
+          }
+          alert(students.some(findKings));
+        }
+        document.querySelector('.king').addEventListener('click', checkKing);
+      })();
+      </script>
+    </section>
+    <section class="slide">
+      <h2>Длина массива: length</h2>
+      <p class="next">
+        Можно получить количество элементов массива: <code>arr.length</code><br>
+        <span class="next">Это количество можно присвоить: <code>arr.length = 100;</code></span><br>
+        <span class="next">Тогда массив может обрезаться или наполниться пустыми элементами</span><br>
+        <span class="next">Важно понимать: длина массива равна последнему элементу + 1</span>
+        <span class="next">
+          <code>var arr = [];</code><br>
+          <code>arr[100] = true;</code><br>
+          <code>alert(arr.length); // 101</code><br>
+          <button type="button" class="btn lengthArr">Проверить</button>
+        </span>
+      </p>
+      <script>
+      (function() {
+        function checkLengthArr() {
+          var arr = [];
+          arr[100] = true;
+          alert(arr.length); // 101
+        }
+        document.querySelector('.lengthArr').addEventListener('click', checkLengthArr);
+      })();
+      </script>
+    </section>
+    <section class="slide">
+      <h2>Массивы с дырами</h2>
+      <p class="next">Можно создать массив с пропущенными элементами.<br>Тогда пропущенные будут <code>undefined</code></p>
+      <p class="next"><code>var arr = [];</code><br>
+        <code>arr[0] = 0;</code><br>
+        <code>arr[10] = 10;</code><br>
+        <code>alert(arr);</code><br>
+        <button type="button" class="btn holeArr">Проверить</button>
+      </p>
+      <script>
+      (function() {
+        function alertHoleArray() {
+          var arr = [];
+          arr[0] = 0;
+          arr[10] = 10;
+          alert(arr);
+        }
+        document.querySelector('.holeArr').addEventListener('click', alertHoleArray);
+      })();
+      </script>
+    </section>
+    <!-- <section class="slide">
+      <h2>Промежуточные результаты: reduce</h2>
+    </section> -->
+    <section class="slide white" style="background-color: MistyRose;">
+      <h1 class="shout grow" style="color: MediumVioletRed "><b>Методы работы с очередью</b></h1>
+    </section>
+    <section class="slide">
+      <h2>Конец массива: pop/push</h2>
+      <p>
+        <span class="next"><code>pop</code> удаляет последний элемент массива</span><br>
+        <span class="next"><code>push</code> добавляет элемент в конец массива</span>
+      </p>
+      <p class="next">
+        <code>var group1 = ["Пётр 1", "Николай 2"];</code><br>
+        <code>var group2 = ["Сталин", "Ленин"];</code><br>
+        <code>var exchangeStudent = group1.pop()</code><br>
+        <code>group2.push(exchangeStudent)</code><br>
+      </p>
+    </section>
+    <section class="slide">
+      <h2>Начало массива: shift/unshift</h2>
+      <p class="next">Та же история, что с <code>pop</code> и <code>push</code>, только в начале массива</p>
+      <p class="next">
+        <code>var vkCEO = ["Дуров", "Добродеев", "Рогозов"];</code><br>
+        <code>var removedCEO = vkCEO.shift()</code><br>
+        <code>var telegramCEO = [];</code><br>
+        <code>telegramCEO.unshift(removedCEO)</code><br>
+      </p>
+      <p class="next"><mark>Функции <code>shift</code> и <code>unshift</code> — медленные! Избегайте их!</mark></p>
+    </section>
+    <section class="slide white" style="background-color: midnightblue;">
+      <h1 class="shout grow" style="color: aquamarine"><b>Методы изменения массивов</b></h1>
+    </section>
+    <section class="slide">
+      <h2>Разделение и склейка: split/join</h2>
+      <p class="next"><code>join</code> нужен, чтобы соединить элементы массива строкой:<br>
+      <code class="next">["Андрей", "Антон", "Кирилл"].join(', '); // "Андрей, Антон, Кирилл"</code></p>
+      <p class="next"><code>split</code> — для разделения строки на элементы массива:<br>
+      <code class="next">"Андрей, Антон, Кирилл".split(', '); // ["Андрей","Антон","Кирилл"]</code></p>
+    </section>
+    <section class="slide">
+      <h2><mark>Лайфхаки <code>split</code></mark></h2>
+      <p class="next">
+      <span class="next">Разделение с обрезкой: Передаём в <code>split</code> вторым аргументом число для обрезки нового массива до этого количества элементов</span><br>
+      <code class="next">"Андрей, Антон, Кирилл".split(', ', 2);<br>// ["Андрей","Антон"]</code></p>
+      <p class="next">Разделить можно не только массив, но и строку: <br>
+        <span class="next"><code>"Андрей".split(''); // ["А", "н", "д", "р", "е", "й"]</code></span>
+      </p>
+    </section>
+    <section class="slide">
+      <h2>Удаление из массива: delete</h2>
+      <p class="next">Можно удалить любой элемент массива</p>
+      <p class="next"><code>var arr = ["Все", "любят", "котиков"];</code></p>
+      <p class="next"><code>delete arr[2]; // ["Все", "любят", <mark> </mark>]</code></p>
+    </section>
+    <section class="slide">
+      <h2>Части массивов: slice</h2>
+      <p class="next">Метод <code>slice(start, end)</code> позволяет взять элементы массива, начиная со start, заканчивая элементом до end</p>
+      <p class="next">
+        <code>var arr = ["Почему", "надо", "любить", "котиков"];</code>
+        <code>var arr2 = arr.slice(1, 3);</code>
+        <code class="next">// ["надо, "любить"]</code>
+      </p>
+      <p class="next">Можно отсчитывать элементы с конца массива<br>
+      <code class="next">var arr3 = arr.slice(-2);</code>
+      <code class="next">// ["любить, "котиков"]</code></p>
+    </section>
+    <section class="slide">
+      <h2>Нарезка массивов: splice</h2>
+      <p class="next">Метод splice – это универсальный раскладной нож для работы с массивами. Умеет все: удалять элементы, вставлять элементы, заменять элементы – по очереди и одновременно.</p>
+      <p class="next">
+        <code>var arr = ["Я", "изучаю", "JavaScript"];</code>
+        <code>arr.splice(1, 1); // начиная с позиции 1, удалить 1 элемент</code>
+        <code>alert( arr ); //  осталось ["Я", "JavaScript"]</code>
+      </p>
+    </section>
+    <section class="slide">
+      <h2>Нарезка массивов: splice</h2>
+      <p class="next">Пример со вставкой новых элементов вместо удалённых</p>
+      <p class="next">
+        <code>var arr = ["Я", "сейчас", "изучаю", "JavaScript"];</code><br>
+        <code>arr.splice(0, 3, "Мы", "изучаем") // удалить 3 первых элемента и добавить другие вместо них</code><br>
+        <code>alert( arr ) // теперь ["Мы", "изучаем", "JavaScript"]</code>
+      </p>
+    </section>
+    <section class="slide">
+      <h2>Вставка без удаления: splice</h2>
+      <p class="next">Можно вставить в любую позицию массива новые элементы без удаления старых</p>
+      <p class="next">
+        <code>var arr = ["Я", "изучаю", "JavaScript"];</code><br>
+        <code>arr.splice(2, 0, "сложный", "язык");</code><br>
+        <code>alert( arr ); // "Я", "изучаю", "сложный", "язык", "JavaScript"</code>
+      </p>
+    </section>
+    <section class="slide">
+      <h2>Сортировка массива: sort</h2>
+      <p class="next">Можно отсортировать элементы массива в алфавитном порядке</p>
+      <p class="next">
+        <code>var arr = ["Т", "Ё", "П", "С", "Р"].sort()</code><br>
+        <code class="next">// ["Ё", "П", "Р", "С", "Т"] </code><br>
+      </p>
+      <p class="next"><mark>Важно:</mark> числа будут приведены к строкам перед сортировкой</p>
+      <p class="next">
+        <code>var arr = [ 1, 2, 15 ].sort();</code><br>
+        <code class="next">// [ 1, 15, 2 ] </code><br>
+      </p>
+    </section>
+    <section class="slide">
+      <h2>Сортировка массива по своим правилам</h2>
+      <span class="next">Можно отсортировать элементы массива как вам угодно<br>
+        Передайте функцию, возвращающую положительное число для повышения рейтинга в сортировке и отрицательное для понижения</span>
+      <span class="next">
+        <code>function compareNum(a, b) {</code><br>
+        <code>&nbsp;&nbsp;if (a > b) return 1;</code><br>
+        <code>&nbsp;&nbsp;if (a < b) return -1;</code><br>
+        <code>}</code><br>
+        <code>var arr = [ 1, 15, 2 ].sort(compareNum); // 1, 2, 15</code>
+      </span>
+    </section>
+    <section class="slide">
+      <h2>Сортировка массива по своим правилам</h2>
+      <p>Можно и так</p>
+      <code>function compareNum(a, b) {</code><br>
+      <code>&nbsp;&nbsp;return a - b;</code><br>
+      <code>}</code><br>
+      <code>var arr = [ 1, 15, 2 ].sort(compareNum); // 1, 2, 15</code>
+    </section>
+    <section class="slide">
+      <h2>Обращение порядка: reverse</h2>
+      <p class="next">Если нужно полностью зеркально поменять порядок элементов в массиве, это можно сделать функцией <code>reverse</code></p>
+      <p class="next">
+        <code>var arr = [1, 2, 3];</code><br>
+        <code>arr.reverse()</code><br>
+        <code>// [ 3, 2, 1 ] </code>
+      </p>
+    </section>
+    <section class="slide">
+      <h2>Склейка массивов: concat</h2>
+      <p class="next">Можно склеивать массивы конкатом</p>
+      <p class="next">
+        <code>[1, 2, 3].concat([6, 7, 9], 20, 50)</code><br>
+        <code>// [1, 2, 3, 6, 7, 9, 20, 50] </code>
+      </p>
+      <p class="next"><mark>Важно понимать!</mark> <code>concat</code> создаёт новый массив!</p>
+    </section>
+    <section class="slide">
+      <h2>indexOf, lastIndexOf</h2>
+      <p class="next"><code>indexOf</code> нужен, чтобы узнать позицию элемента в массиве</p>
+      <p class="next">
+        <code>[3, 0, 8].indexOf(0)</code>
+        <code>// 1</code>
+      </p>
+      <p class="next">Но ещё чаще его используют для определения наличия элемента в массиве. Пишут это в проверках вот так:</p>
+      <p class="next">
+        <code>if([3, 8].indexOf(0) === -1) {</code><br>
+        <code>// сделать что-нибудь, если элемента нет в массиве</code><br>
+        <code>}</code><br>
+      </p>
+    </section>
+    <section class="slide black">
+      <h1 class="shout grow" style="color: gold "><b>Вопросы?</b></h1>
+    </section>
+    <!-- <section class="slide white" style="background-color: RebeccaPurple ;">
+      <h1 class="shout grow" style="color: PaleTurquoise"><b>Многомерные массивы</b></h1>
+    </section> -->
+
+    <div class="progress"></div>
+    <script src="shower/shower.min.js"></script>
+</body>
+</html>
